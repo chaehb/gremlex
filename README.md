@@ -3,6 +3,14 @@
 [![Build Status](https://travis-ci.com/Revmaker/gremlex.svg?branch=master)](https://travis-ci.com/Revmaker/gremlex)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+# This is a modified version for personal purpose
+
+## Changes
+- dependencies 
+  Poison -> Jason
+   and add Jason Tuple Encoder
+  uuid -> elixir_uuid
+
 # Gremlex
 
 An Elixir client for Apache TinkerPop™ aka [Gremlin](http://tinkerpop.apache.org/gremlin.html).
@@ -16,7 +24,7 @@ Install from Hex.pm:
 ```elixir
 def deps do
   [
-    {:gremlex, "~> 0.1.1"}
+    {:gremlex, "~> 0.3.2"}
   ]
 end
 ```

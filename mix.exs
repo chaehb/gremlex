@@ -43,11 +43,11 @@ defmodule Gremlex.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:poison, "~> 3.1"},
+      {:jason, "~> 1.2"},
       {:httpoison, "~> 1.3.1"},
       {:confex, "~> 3.2.3"},
-      {:uuid, "~> 1.1"},
-      {:poolboy, "~> 1.5.1"},
+      {:elixir_uuid, "~> 1.2"},
+      {:poolboy, "~> 1.5.2"},
       {:socket, "~> 0.3"},
       {:mix_test_watch, "~> 0.3", only: :dev, runtime: false},
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},

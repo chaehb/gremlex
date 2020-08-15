@@ -78,7 +78,7 @@ defmodule Gremlex.Client do
     payload =
       query
       |> Request.new()
-      |> Poison.encode!()
+      |> Jason.encode!()
 
     :poolboy.transaction(:gremlex, fn worker_pid ->
       GenServer.call(worker_pid, {:query, payload, timeout}, timeout)
@@ -98,7 +98,7 @@ defmodule Gremlex.Client do
   end
 
   def handle_info(:ping, %{socket: socket} = state) do
-    Logger.debug("Ping!")
+    # Logger.debug("Ping!")
     Socket.Web.send!(socket, {:pong, ""})
     schedule()
     {:noreply, state}
@@ -106,7 +106,7 @@ defmodule Gremlex.Client do
 
   defp schedule do
     delay = get_delay()
-    Logger.debug("Delay: #{delay}")
+    # Logger.debug("Delay: #{delay}")
 
     if delay > 0 do
       Process.send_after(self(), :ping, delay)
@@ -118,7 +118,7 @@ defmodule Gremlex.Client do
   defp recv(socket, acc \\ []) do
     case Socket.Web.recv!(socket) do
       {:text, data} ->
-        response = Poison.decode!(data)
+        response = Jason.decode!(data)
         result = Deserializer.deserialize(response)
         status = response["status"]["code"]
         error_message = response["status"]["message"]
