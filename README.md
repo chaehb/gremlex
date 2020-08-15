@@ -3,13 +3,12 @@
 [![Build Status](https://travis-ci.com/Revmaker/gremlex.svg?branch=master)](https://travis-ci.com/Revmaker/gremlex)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# This is a modified version for personal purpose
+# !!! This is a modified version for the personal uses !!!
 
 ## Changes
-- dependencies 
-  Poison -> Jason
-   and add Jason Tuple Encoder
-  uuid -> elixir_uuid
+- change json library  from Poison to Jason
+- add JasonTupleEncoder
+- change uuid library from uuid to elixir_uuid
 
 # Gremlex
 
