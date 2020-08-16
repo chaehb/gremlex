@@ -44,7 +44,7 @@ defmodule Gremlex.MixProject do
   defp deps do
     [
       {:jason, "~> 1.2"},
-      {:httpoison, "~> 1.3.1"},
+      # {:httpoison, "~> 1.3.1"},
       {:confex, "~> 3.2.3"},
       {:elixir_uuid, "~> 1.2"},
       {:poolboy, "~> 1.5.2"},

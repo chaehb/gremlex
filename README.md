@@ -24,7 +24,8 @@ Install from Hex.pm:
 ```elixir
 def deps do
   [
-    {:gremlex, "~> 0.3.2"}
+    #{:gremlex, "~> 0.3.2"}
+    {:gremlex, git: "https://github.com/chaehb/gremlex.git", tag: "master"}
   ]
 end
 ```
