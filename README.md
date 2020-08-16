@@ -9,6 +9,7 @@
 - change json library  from Poison to Jason
 - add JasonTupleEncoder
 - change uuid library from uuid to elixir_uuid
+- websocket message mode from :text to :binary
 
 # Gremlex
 
