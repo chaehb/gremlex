@@ -113,7 +113,7 @@ simply have the parameters that need to be dynamically read at run time set to `
 
 ## Contributing
 
-    $ git clone https://github.com/Revmaker/gremlex.git
+    $ git clone https://github.com/chaehb/gremlex.git
     $ cd gremlex
     $ mix deps.get
     $ mix test
