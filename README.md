@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.com/Revmaker/gremlex.svg?branch=master)](https://travis-ci.com/Revmaker/gremlex)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# !!! This is a modified version for the personal uses !!!
+# !!! This is a modified version for the personal purpose !!!
 
 ## Changes
 - change json library  from Poison to Jason
