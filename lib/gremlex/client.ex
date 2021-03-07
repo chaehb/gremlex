@@ -156,45 +156,45 @@ defmodule Gremlex.Client do
             {:error, :server_serialization_error, error_message}
         end
 
-        {:binary, data} ->
-          response = Jason.decode!(data)
-          result = Deserializer.deserialize(response)
-          status = response["status"]["code"]
-          error_message = response["status"]["message"]
-          # Continue to block until we receive a 200 status code
-          case status do
-            200 ->
-              {:ok, acc ++ result}
+    {:binary, data} ->
+      response = Jason.decode!(data)
+      result = Deserializer.deserialize(response)
+      status = response["status"]["code"]
+      error_message = response["status"]["message"]
+      # Continue to block until we receive a 200 status code
+      case status do
+        200 ->
+          {:ok, acc ++ result}
 
-            204 ->
-              {:ok, []}
+        204 ->
+          {:ok, []}
 
-            206 ->
-              recv(socket, acc ++ result)
+        206 ->
+          recv(socket, acc ++ result)
 
-            401 ->
-              {:error, :unauthorized, error_message}
+        401 ->
+          {:error, :unauthorized, error_message}
 
-            409 ->
-              {:error, :malformed_request, error_message}
+        409 ->
+          {:error, :malformed_request, error_message}
 
-            499 ->
-              {:error, :invalid_request_arguments, error_message}
+        499 ->
+          {:error, :invalid_request_arguments, error_message}
 
-            500 ->
-              {:error, :server_error, error_message}
+        500 ->
+          {:error, :server_error, error_message}
 
-            597 ->
-              {:error, :script_evaluation_error, error_message}
+        597 ->
+          {:error, :script_evaluation_error, error_message}
 
-            598 ->
-              {:error, :server_timeout, error_message}
+        598 ->
+          {:error, :server_timeout, error_message}
 
-            599 ->
-              {:error, :server_serialization_error, error_message}
-          end
+        599 ->
+          {:error, :server_serialization_error, error_message}
+      end
 
-          {:ping, _} ->
+      {:ping, _} ->
         # Keep the connection alive
         Socket.Web.send!(socket, {:pong, ""})
         recv(socket, acc)
